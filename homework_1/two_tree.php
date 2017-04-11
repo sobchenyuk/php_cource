@@ -2,7 +2,7 @@
 
 class Two
 {
-    public $age;
+    protected $age;
 
     function __construct($age)
     {
