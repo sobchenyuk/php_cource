@@ -11,9 +11,9 @@ class One{
 
     public function performance()
     {
-        echo "Меня зовут " . $this->name . "<br />";
-        echo "Моя фамилия " . $this->surname . "<br />";
-        echo "Мне " . $this->age . "лет  <br />";
+        echo "Меня зовут " . $this->name ;
+        echo "Моя фамилия " . $this->surname ;
+        echo "Мне " . $this->age ;
     }
 }
 
