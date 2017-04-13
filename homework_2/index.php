@@ -1,4 +1,7 @@
-<?php require_once 'class/OptionValue.php' ?>
+<?php
+require_once 'class/optionValue.php';
+require_once 'class/FieldType.php';
+?>
 
 <!doctype html>
 <html lang="en">
@@ -23,13 +26,14 @@
 
 <h2 class="text-center">Калькулятор</h2>
 
+
 <div class="container">
     <div class="row">
-        <form role="form" method="post" action="running.php">
+        <form role="form" method="post" >
 
             <div class="form-group col-md-2">
-                <label for="firstNumber">Первое число</label>
-                <input type="text" name="firstNumber" class="form-control" id="firstNumber" placeholder="Число">
+                <label for="first">Первое число</label>
+                <input type="text" name="firstNumber" class="form-control" id="first" value="" placeholder="Число">
             </div>
 
 
@@ -41,8 +45,8 @@
             </div>
 
             <div class="form-group col-md-2">
-                <label for="lastNumber">Второе число</label>
-                <input type="text" name="lastNumber" class="form-control" id="lastNumber" placeholder="Число">
+                <label for="last">Второе число</label>
+                <input type="text" name="lastNumber" class="form-control" id="last" value="" placeholder="Число">
             </div>
 
             <div class="col-md-3">
@@ -56,13 +60,17 @@
                 <div class="col-md-10">
                 <div class="form-group ">
                     <label for="result">Результат</label>
-                    <input type="text" name="result" class="form-control" id="result" placeholder="Рузультат" disabled>
+                    <input type="text" name="result" class="form-control" id="result" placeholder="Рузультат" value="<?php echo $FieldType->testFunck(); ?>" disabled>
                 </div>
                 </div>
             </div>
 
         </form>
+
     </div>
+</div>
+<div class="container">
+    <?php $FieldType->getType(); ?>
 </div>
 
 
