@@ -4,7 +4,7 @@ class FieldType {
     private $firstNumber;
     private $lastNumber;
     private $post;
-    private $test;
+    public $test;
 
     /**
      * FieldType constructor.
@@ -16,13 +16,19 @@ class FieldType {
         $this->firstNumber;
         $this->lastNumber;
         $this->test;
-        $this->testFunck();
     }
 
-    function testFunck($a = NULL){
-        return $a;
-    }
+    public function setResult(){
+        /*if($this->test == 1){
+            echo '1';
+        }*/
 
+
+
+        //return $this->test = 1;
+
+        echo $this->test;
+    }
 
     public function getType(){
 
@@ -37,27 +43,17 @@ class FieldType {
                 if(!is_numeric($this->firstNumber) || !is_numeric($this->lastNumber)){
                     echo "<p class=\"bg-danger text-center\">Вы не ввили число!</p>";
 
-                    $this->testFunck('1');
+                    $this->test = 1;
 
+                    //$this->res =1;
+                    //global $this->test = 1;
+
+                    //echo $this->test;
                 }
             }else{
                 echo "<p class=\"bg-danger text-center\">Вы отправили пустую форму!</p>";
             }
         }
-
-    }
-
-
-    public function setResult(){
-         $this->testFunck();
-       //echo $this->test;
-        /*if($this->test == "true"){
-            echo 'true';
-        }else{
-            echo 'false';
-        }*/
-        //echo $this->res;
-
 
     }
 

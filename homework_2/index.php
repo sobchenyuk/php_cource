@@ -60,7 +60,7 @@ require_once 'class/FieldType.php';
                 <div class="col-md-10">
                 <div class="form-group ">
                     <label for="result">Результат</label>
-                    <input type="text" name="result" class="form-control" id="result" placeholder="Рузультат" value="<?php echo $FieldType->testFunck(); ?>" disabled>
+                    <input type="text" name="result" class="form-control" id="result" placeholder="Рузультат" value="<?php echo $FieldType->test; ?>" disabled>
                 </div>
                 </div>
             </div>
