@@ -3,8 +3,12 @@
 class FieldType {
     private $firstNumber;
     private $lastNumber;
+    private $options;
     private $post;
-    public $test;
+    public $res;
+    private $err;
+    private $num = 3;
+    private $test;
 
     /**
      * FieldType constructor.
@@ -13,50 +17,52 @@ class FieldType {
     function __construct($post)
     {
         $this->post = $post;
-        $this->firstNumber;
-        $this->lastNumber;
-        $this->test;
+        if(!empty($this->post)){
+            if(isset($this->post['firstNumber'])&& $this->post['lastNumber']) {
+                $this->firstNumber = $this->post['firstNumber'];
+                $this->lastNumber = $this->post['lastNumber'];
+                $this->options = $this->post['options'];
+            }else{
+                FieldType::getError("Вы отправили пустую форму!");
+            }
+            return $this->test = true;
+        }
+        return $this->test = false;
     }
 
-    public function setResult(){
-        /*if($this->test == 1){
-            echo '1';
-        }*/
-
-
-
-        //return $this->test = 1;
-
-        echo $this->test;
+    private function getError($error){
+        return $this->err = "<p class=\"bg-danger text-center\">$error</p>";
     }
 
     public function getType(){
-
-        if(!empty($this->post)){
-            if(isset($this->post['firstNumber'])&& $this->post['lastNumber']){
-
-                $this->firstNumber = $this->post['firstNumber'];
-                $this->lastNumber = $this->post['lastNumber'];
-
-
-
-                if(!is_numeric($this->firstNumber) || !is_numeric($this->lastNumber)){
-                    echo "<p class=\"bg-danger text-center\">Вы не ввили число!</p>";
-
-                    $this->test = 1;
-
-                    //$this->res =1;
-                    //global $this->test = 1;
-
-                    //echo $this->test;
+        if($this->test === true){
+            if(empty($this->err)){
+                if(is_numeric($this->firstNumber) && is_numeric($this->lastNumber)){
+                    if((strlen($this->firstNumber) > $this->num) || (strlen($this->lastNumber)  > $this->num)){
+                        FieldType::getError("Поля ввода не могут содержать больше трех символов");
+                    }else{
+                        switch ($this->options){
+                            case 0:
+                                $this->res = $this->firstNumber + $this->lastNumber;
+                                break;
+                            case 1:
+                                $this->res = $this->firstNumber - $this->lastNumber;
+                                break;
+                            case 2:
+                                $this->res = $this->firstNumber / $this->lastNumber;
+                                break;
+                            case 3:
+                                $this->res = $this->firstNumber * $this->lastNumber;
+                                break;
+                        }
+                    }
+                }else {
+                    FieldType::getError("Вы не ввили число!");
                 }
-            }else{
-                echo "<p class=\"bg-danger text-center\">Вы отправили пустую форму!</p>";
             }
+            echo $this->err;
         }
-
     }
-
 }
 
 $FieldType = new FieldType($_POST);

@@ -26,6 +26,9 @@ require_once 'class/FieldType.php';
 
 <h2 class="text-center">Калькулятор</h2>
 
+<div class="container">
+    <?php $FieldType->getType(); ?>
+</div>
 
 <div class="container">
     <div class="row">
@@ -39,7 +42,7 @@ require_once 'class/FieldType.php';
 
             <div class="form-group col-md-2">
                 <label for="step">Выбор действия</label>
-                <select class="form-control" id="step">
+                <select class="form-control" id="step" name="options">
                     <?php $OptionValue->getValue(); ?>
                 </select>
             </div>
@@ -60,7 +63,7 @@ require_once 'class/FieldType.php';
                 <div class="col-md-10">
                 <div class="form-group ">
                     <label for="result">Результат</label>
-                    <input type="text" name="result" class="form-control" id="result" placeholder="Рузультат" value="<?php echo $FieldType->test; ?>" disabled>
+                    <input type="text" name="result" class="form-control" id="result" placeholder="Рузультат" value="<?php echo $FieldType->res ?>" disabled>
                 </div>
                 </div>
             </div>
@@ -69,18 +72,12 @@ require_once 'class/FieldType.php';
 
     </div>
 </div>
-<div class="container">
-    <?php $FieldType->getType(); ?>
-</div>
-
 
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<script src="js/init.js"></script>
 
 </body>
 </html>
