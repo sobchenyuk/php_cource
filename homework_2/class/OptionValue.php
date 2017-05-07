@@ -12,7 +12,7 @@ class OptionValue {
     }
 
     function getValue() {
-        for($i =0; $i < count($this->arr);$i ++)
+        for($i =0; $i < count($this->arr); $i++)
           echo "<option value='$i'>{$this->arr[$i]}</option>";
     }
 }
