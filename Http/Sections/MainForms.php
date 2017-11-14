@@ -95,6 +95,7 @@ class MainForms extends Section implements Initializable
         ->addBody([
             AdminFormElement::text('description', 'Мета-тег Description')->required(),
             AdminFormElement::text('title', 'H1')->required(),
+            AdminFormElement::image('img', 'Иконка для сайта')->required(),
             AdminFormElement::text('copyright', 'Текст в подвале сайта')->required(),
         ])
         ->setHtmlAttribute('enctype', 'multipart/form-data');
